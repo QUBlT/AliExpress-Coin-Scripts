@@ -19,7 +19,7 @@ $urls = @(
 "https://s.click.aliexpress.com/e/_DnegNKP"
 )
 $waitTime = 240
-$scriptToCheck = "C:\Users\Admin\Documents\Powershell Scripts\Open_AE_Mobile_Coins_Webapp.ps1"
+$scriptToCheck = "%USERPROFILE%\Documents\Powershell Scripts\Open_AE_Mobile_Coins_Webapp.ps1"
 
 # Function to check for internet connectivity
 function Test-InternetConnection {
@@ -78,9 +78,9 @@ Wait-ForInternet
 
 # Start all browsers for each URL
 $allProcesses = @()
-$allProcesses += Start-BrowserForUrls "C:\Program Files\Google\Chrome\Application\chrome.exe" $urls
-$allProcesses += Start-BrowserForUrls "C:\Users\Admin\AppData\Local\Chromium\Application\chrome.exe" $urls
-$allProcesses += Start-BrowserForUrls "C:\Program Files\Google\Chrome Beta\Application\chrome.exe" $urls
+$allProcesses += Start-BrowserForUrls "%ProgramFiles%\Google\Chrome\Application\chrome.exe" $urls
+$allProcesses += Start-BrowserForUrls "%USERPROFILE%\AppData\Local\Chromium\Application\chrome.exe" $urls
+$allProcesses += Start-BrowserForUrls "%ProgramFiles%\Google\Chrome Beta\Application\chrome.exe" $urls
 $allProcesses += Start-BrowserForUrls "msedge.exe" $urls
 
 # Wait for the specified time
@@ -93,6 +93,6 @@ if (-not (Is-ScriptRunning $scriptToCheck)) {
     }
 }
 Stop-Process -Name "msedge" -Force
-Stop-Process -Name "C:\Program Files\Google\Chrome\Application\chrome.exe" -Force
-Stop-Process -Name "C:\Users\Admin\AppData\Local\Chromium\Application\chrome.exe" -Force
-Stop-Process -Name "C:\Program Files\Google\Chrome Beta\Application\chrome.exe" -Force
+Stop-Process -Name "%ProgramFiles%\Google\Chrome\Application\chrome.exe" -Force
+Stop-Process -Name "%USERPROFILE%\AppData\Local\Chromium\Application\chrome.exe" -Force
+Stop-Process -Name "%ProgramFiles%\Google\Chrome Beta\Application\chrome.exe" -Force
