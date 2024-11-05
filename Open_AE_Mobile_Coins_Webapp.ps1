@@ -37,7 +37,7 @@ function Start-Browser {
 Wait-ForInternet
 # Start browsers one by one
 $processes = @()
-$browsers = @("C:\Program Files\Google\Chrome\Application\chrome.exe", "C:\Users\Admin\AppData\Local\Chromium\Application\chrome.exe", "C:\Program Files\Google\Chrome Beta\Application\chrome.exe","msedge.exe")
+$browsers = @("%ProgramFiles%\Google\Chrome\Application\chrome.exe", "%USERPROFILE%\AppData\Local\Chromium\Application\chrome.exe", "%ProgramFiles%\Google\Chrome Beta\Application\chrome.exe","msedge.exe")
 foreach ($browser in $browsers) {
     $process = Start-Browser $browser
     if ($process -ne $null) {
